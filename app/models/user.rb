@@ -50,7 +50,6 @@ class User < ActiveRecord::Base
   end
 
   def want(item)
-    binding.pry
     wants.find_or_create_by(item_id: item.id)
   end
 
