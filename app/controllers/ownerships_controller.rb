@@ -8,7 +8,6 @@ class OwnershipsController < ApplicationController
       @item = Item.find(params[:item_id])
     end
     
-    
     # itemsテーブルに存在しない場合はAmazonのデータを登録する。
     if @item.new_record?
       begin
@@ -38,12 +37,11 @@ class OwnershipsController < ApplicationController
       current_user.want(@item)
     end
 
-
   end
 
   def destroy
     @item = Item.find(params[:item_id])
-
+    
     if params[:type] == "Have"
       current_user.unhave(@item) unless @item.nil?
     else
