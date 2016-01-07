@@ -16,6 +16,8 @@ class UsersController < ApplicationController
   
   def show
     @items = @user.items.group('items.id')
+    @titletag = @user.name + "のページ-Monolist"
+    @descriptiontag = @user.name + "のモノページ。Taroの欲しいモノ、持ってるモノを表示しています。"
   end
 
   private

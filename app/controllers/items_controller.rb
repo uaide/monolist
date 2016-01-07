@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @titletag = @item.title + "-monolist"
+    @descriptiontag = @item.title + "に関する情報です。この商品をほしい人、持ってる人を表示しています。"
   end
 
   private

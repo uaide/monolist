@@ -22,13 +22,13 @@
       <li>
         <div class="status-label">WANT</div>
         <div id="want_count" class="status-value">
-          789
+          <%= Want.where(user_id: user.id).count %>
         </div>
       </li>
       <li>
         <div class="status-label">HAVE</div>
         <div id="have_count" class="status-value">
-          123
+          <%= Have.where(user_id: user.id).count %>
         </div>
       </li>
     </ul>
