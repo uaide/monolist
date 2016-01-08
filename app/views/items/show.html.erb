@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <title><%= @item.title + "-Monolist"  %> </title>
-  <meta name="description" content=<%= @item.title + "に関する情報です。この商品を欲しい人、持っている人を表示しています。" %> >
+  <meta name="description" content="<%= @item.title + "に関する情報です。この商品を欲しい人、持っている人を表示しています。" %>" >
 <% end %>
 <div class="container">
   <div class="container-inner inner-sm clearfix">
@@ -29,7 +29,7 @@
           <% @haveditems = Have.where(item_id: @item.id) %>
           <% @haveditems.each do |haveditem| %>
             <% @haveduser = User.where(id: haveditem.user_id) %>
-            <%= link_to gravatar_for(@haveduser.first, size:50), @haveduser.first %>
+            <%= link_to gravatar_for(@haveduser.first, size:24), @haveduser.first %>
           <% end %>
         </div>
       </div>
@@ -40,7 +40,7 @@
           <% @wanteditems = Want.where(item_id: @item.id) %>
           <% @wanteditems.each do |wanteditem| %>
             <% @wanteduser = User.where(id: wanteditem.user_id) %>
-            <%= link_to gravatar_for(@wanteduser.first, size:50), @wanteduser.first %>
+            <%= link_to gravatar_for(@wanteduser.first, size:24), @wanteduser.first %>
           <% end %>
         </div>
       </div>
