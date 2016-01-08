@@ -25,7 +25,7 @@
           <% @haveditems = Have.where(item_id: @item.id) %>
           <% @haveditems.each do |haveditem| %>
             <% @haveduser = User.where(id: haveditem.user_id) %>
-            <%= link_to gravatar_for(@haveduser.first, size:50), @haveduser.first %>
+            <%= link_to gravatar_for(@haveduser.first, size:24), @haveduser.first %>
           <% end %>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <% @wanteditems = Want.where(item_id: @item.id) %>
           <% @wanteditems.each do |wanteditem| %>
             <% @wanteduser = User.where(id: wanteditem.user_id) %>
-            <%= link_to gravatar_for(@wanteduser.first, size:50), @wanteduser.first %>
+            <%= link_to gravatar_for(@wanteduser.first, size:24), @wanteduser.first %>
           <% end %>
         </div>
       </div>
