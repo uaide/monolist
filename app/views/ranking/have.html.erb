@@ -1,32 +1,37 @@
 <div class="container">
-  <div class="container-inner inner-sm clearfix">
+  
     <% rank_no = 0 %>
     <% current_count = 0 %>
     <% @sorted = @havescounts.sort_by{|k,v| - v} %>
-    <% @sorted.each do |id_key,count_value| %>
-      <% if current_count == count_value %>
-        <% rank_no -= 1 %>
-      <% end %>
-      ランキング<%= rank_no += 1 %>位 </br>
-      <%= count_value %>Haved!!</br>
-      <% @item = Item.find_by(id: id_key) %></br>
+    <div class="container">
+      <div class="container-inner inner-default clearfix">
       
-      <div class="item-single-main">
-        <div class="image">
-          <div class="img-wrap">
-            <% if @item.large_image == nil %>
-              <%= image_tag("no-image.png" , alt: @item.title) %>
-            <% else %>
+        <% @sorted.each do |id_key,count_value| %>
+          <% if current_count == count_value %>
+            <% rank_no -= 1 %>
+          <% end %>
+          
+          <div class="item-box">
+            ランキング<%= rank_no += 1 %>位
+            <%= count_value %>Haved!!
+            <% @item = Item.find_by(id: id_key) %>
+            <div class="image">
+              <div class="img-wrap">    
+              <% if @item.large_image == nil %>
+                <%= image_tag("no-image.png" , alt: @item.title) %>
+              <% else %>
                 <%= image_tag(@item.large_image, alt: @item.title) %>
-            <% end %>
+              <% end %>
+              </div>
+            </div>
+            
+            <div class="title">
+              <%= @item.title %>
+            </div>
           </div>
-        </div>
-        <div class="title">
-          <% #TODO 商品タイトル %>
-          <%= @item.title %>
-        </div>
-      </div>
-        <% current_count = count_value %>
-    <% end %>
-  </div>
+          <% current_count = count_value %>
+        <% end %>
+      </div>    
+    </div>
+  
 </div>
